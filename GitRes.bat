@@ -13,11 +13,12 @@ IF "%~1"=="" (
     git commit -m %1
     REM COMMENTED OUT CODE FORCES A PUSH
     REM It loses track of remote updates
-    git push origin main --force
-    REM git push origin main
+    REM git push origin main --force
+    git push origin main
     REM echo sem nada mostra o echo status
     echo .
     echo .
     echo VIEWS IF BATCH SUCCEEDED
     git log -n 1
+    git diff --name-only HEAD^ HEAD
 )
