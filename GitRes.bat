@@ -20,5 +20,4 @@ IF "%~1"=="" (
     echo .
     echo VIEWS IF BATCH SUCCEEDED
     git log -n 1
-    git diff --name-only HEAD^ HEAD
 )
