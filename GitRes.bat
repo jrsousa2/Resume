@@ -4,7 +4,7 @@ REM Check if the argument %1 is provided
 IF "%~1"=="" (
     echo Rerun code with commit description
 ) ELSE (
-    cd D:\resumes
+    cd D:\Resumes
     set GIT_TRACE=1
     echo FORCE A RE-READING OF THE .gitignore list
     git rm -r --cached .
