@@ -3,6 +3,7 @@ REM Check if the argument %1 is provided
 
 IF "%~1"=="" (
     echo Setting description to Updt
+    echo .
     set Desc=Updt
 ) ELSE (
   set Desc=%1
