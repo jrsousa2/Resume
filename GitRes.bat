@@ -17,15 +17,17 @@ rem ) ELSE (
     echo FORCE A RE-READING OF THE .gitignore list
     git rm -r --cached .
     git add .
-    git branch -M main
+    REM BELOW MAY NOT BE NEEDED ANYMORE
+    REM git branch -M main
     git commit -m %Desc%
     REM COMMENTED OUT CODE FORCES A PUSH
     REM It loses track of remote updates
     REM git push origin main --force
     git push origin main
     REM echo sem nada mostra o echo status
-    echo .
-    echo .
+    echo.
+    echo.
     echo VIEWS IF BATCH SUCCEEDED
-    git log -n 1
+    REM USING "git log -n 1" IS NOT TOO USEFUL
+    git log -1 --name-status 
 rem )
