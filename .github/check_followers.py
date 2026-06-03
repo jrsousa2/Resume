@@ -24,14 +24,18 @@ headers = {
 
 url = f"https://api.github.com/users/{USERNAME}/followers"
 resp = requests.get(url, headers=headers)
+# CHECK STATUS FIST 
+resp.raise_for_status()
+
 followers = sorted([f["login"] for f in resp.json()])
 
 # load old followers
 try:
     with open("followers.json", "r") as f:
         old_followers = json.load(f)
-except:
+except FileNotFoundError:
     old_followers = []
+
 
 new_followers = list(set(followers) - set(old_followers))
 
