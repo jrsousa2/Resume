@@ -24,7 +24,7 @@ jobs:
       - name: Run script
         env:
           GH_TOKEN: ${{ secrets.Jose_GH_followers_read_only }}
-        run: python check_followers.py
+        run: python .github/check_followers.py
 
       - name: Commit updated follower list
         run: |
