@@ -1,0 +1,35 @@
+name: Check GitHub Followers
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # every 6 hours
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run script
+        env:
+          GH_TOKEN: ${{ secrets.Jose_GH_followers_read_only }}
+        run: python check_followers.py
+
+      - name: Commit updated follower list
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add followers.json
+          git commit -m "update followers" || exit 0
+          git push
