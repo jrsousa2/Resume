@@ -1,0 +1,28 @@
+name: Stock Alert
+
+on:
+  schedule:
+  # RUNS EVERYDAY AT 2pm EST
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+
+jobs:
+  check-stock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install yfinance
+
+      - name: Run stock alert
+        env:
+          GMAIL_APP_SMTP_EMAIL: ${{ secrets.GMAIL_APP_SMTP_EMAIL }}
+          GMAIL_APP_SMTP_PASSWORD: ${{ secrets.GMAIL_APP_SMTP_PASSWORD }}
+          TICKER1_VALUE: ${{ secrets.TICKER1_VALUE }}
+          TICKER1_TARGET: ${{ secrets.TICKER1_TARGET }}
+        run: python .github/stock_alert_GH.py

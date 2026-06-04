@@ -2,7 +2,9 @@ name: Check GitHub Followers
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # every 6 hours
+    # - cron: "0 */6 * * *"  # every 6 hours
+    # EVERYDAT AT 6pm EST
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,7 +25,7 @@ jobs:
 
       - name: Run script
         env:
-          GH_TOKEN: ${{ secrets.Jose_GH_followers_read_only }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: python .github/check_followers.py
 
       - name: Commit updated follower list
