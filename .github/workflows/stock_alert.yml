@@ -2,8 +2,8 @@ name: Stock Alert
 
 on:
   schedule:
-  # RUNS EVERYDAY AT 2pm EST
-    - cron: "0 19 * * *"
+  # RUNS EVERY WORKDAY AT 2pm EST
+    - cron: "0 19 * * 1-5"
   workflow_dispatch:
 
 jobs:

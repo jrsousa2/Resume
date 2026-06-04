@@ -26,6 +26,8 @@ jobs:
       - name: Run script
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GMAIL_APP_SMTP_EMAIL: ${{ secrets.GMAIL_APP_SMTP_EMAIL }}
+          GMAIL_APP_SMTP_PASSWORD: ${{ secrets.GMAIL_APP_SMTP_PASSWORD }}
         run: python .github/check_followers.py
 
       - name: Commit updated follower list
