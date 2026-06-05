@@ -15,11 +15,11 @@ rem ) ELSE (
     cd D:\Resumes
     set GIT_TRACE=1
     echo FORCE A RE-READING OF THE .gitignore list IF IT CHANGES
-    git rm -r --cached .
+    rem git rm -r --cached .
     REM adds new + modified files
-    git add .
+    rem git add .
     REM ADDS EVERYTHING
-    rem git add -A
+    git add -A
     REM BELOW MAY NOT BE NEEDED ANYMORE
     REM git branch -M main
     git commit -m %Desc%
