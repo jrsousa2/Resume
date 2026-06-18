@@ -27,7 +27,7 @@ IF "%~1"=="" (
  REM It loses track of remote updates
  REM git push origin main --force
  git push origin main
- REM echo sem nada mostra o echo status
+ REM echo with nothing displays echo status
  echo.
  echo.
  echo VIEWS IF BATCH SUCCEEDED
