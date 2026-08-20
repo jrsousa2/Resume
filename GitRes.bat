@@ -15,7 +15,7 @@ IF "%~1"=="" (
  cd D:\Resumes
  set GIT_TRACE=1
  echo FORCE A RE-READING OF THE .gitignore list IF IT CHANGES
- REM git rm -r --cached .
+ git rm -r --cached .
  REM adds new + modified files
  REM git add .
  REM ADDS EVERYTHING
